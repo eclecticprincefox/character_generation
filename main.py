@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 import random
 
 
@@ -136,8 +137,27 @@ class Character:
         self.race_data.show_race()
 
     def save_character(self, file_path: str):
-        with pd.ExcelWriter(file_path, mode='a') as writer:
-            df1.to_excel(writer, sheet_name='Sheet_name_3')
+        data = {
+            "Name": [self.name],
+            "Class": [self.character_class],
+            "Race": [self.character_race],
+            "Strength": [self.final_character_statistics["strength"]],
+            "Dexterity": [self.final_character_statistics["dexterity"]],
+            "Constitution": [self.final_character_statistics["constitution"]],
+            "Intelligence": [self.final_character_statistics["intelligence"]],
+            "Wisdom": [self.final_character_statistics["wisdom"]],
+            "Charisma": [self.final_character_statistics["charisma"]],
+        }
+        df1 = pd.DataFrame(data)
+        if os.path.exists(file_path):
+            try:
+                existing = pd.read_excel(file_path, sheet_name='character')
+                df1 = pd.concat([existing, df1], ignore_index=True)
+            except Exception:
+                pass
+
+        with pd.ExcelWriter(file_path, mode='a', engine='openpyxl') as writer:
+            df1.to_excel(writer, sheet_name='character', index=False)
 
 
 if __name__ == "__main__":
@@ -149,6 +169,8 @@ if build_character == "Y":
     character = Character(name, "dnd.xlsx", "race", "class")
     print("---------Character Created---------")
     character.show_character()
+    character.save_character("dnd.xlsx")
+    print("---------Character saved---------")
 
     print("---------Double chceck stats---------")
 
@@ -161,6 +183,6 @@ if build_character == "Y":
     print(f"Wisdom: {character.stats.wisdom}")
     print(f"Charisma: {character.stats.charisma}")
 
-print("-----------Character bonuses-----------")
+    print("-----------Character bonuses-----------")
 
-character.show_race_bonus()
+    character.show_race_bonus()
