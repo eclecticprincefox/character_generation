@@ -3,11 +3,32 @@ from character import Character
 
 
 class CharacterExporter():
+    """
+    Klasa odpowiedzialna za eksportowanie dancych postaci do pliku Excel.
+
+    Zapisywana jest jedna postać do wskazanego arkusza pliku.
+    """
+
     def __init__(self, file_path: str,  sheet_name: str):
+        """
+        Funckja inicjalizująca klasę CharacterExporter.
+
+        Args:
+            file_path (str): Ścieżka do pliku Excel, do którego mają być
+            zapisane dane.
+            sheet_name (str): Nazwa arkusza w pliku Excel.
+        """
         self.file_path = file_path
         self.sheet_name = sheet_name
 
     def save_character(self, character: Character):
+        """
+        Funlkcja zbiera i zapisuje dane przekazanej postaci do pliku Excel.
+
+        Args:
+            character (Character): Obiekt postaci, której dane mają być
+            zapisane.
+        """
 
         data = {
             "Name": [character.name],

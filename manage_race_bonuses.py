@@ -4,7 +4,20 @@ from create_statistics import Strength, Dexterity, Constitution, Intelligence, W
 
 
 class ManageRaceBonuses():
-    def __init__(self, character_race):
+    """
+    Klasa odpowiedzialna za zarządzanie bonusami rasowymi postaci.
+
+    Przechowuje informacje o bonusach wynikających z wybranej rasy
+    i umożliwia obliczenie końcowych statystyk postaci.
+    """
+
+    def __init__(self, character_race: str = "random"):
+        """
+        Funkcja odpowiedzialna za dodawanie bonusów rasowych postaci do
+        wylosowanych statystyk.
+
+        Oblicza końcowe statystyk postaci.
+        """
         races = RaceImporter("dnd.xlsx", "race").races
         self.race = RandomRace(races)
         self.character_race = character_race
@@ -27,6 +40,13 @@ class ManageRaceBonuses():
         ]
 
     def calculate_final_statistics(self):
+        """
+        Funkcja odpowiedzialna za dodawanie bonusów rasowych postaci do
+        wylosowanych statystyk.
+
+        Oblicza końcowe statystyk postaci, zwraca słownik z wartościami
+        statystyk z uwzględnieniem bonusów rasowych.
+        """
 
         return {
             "strength": self.stats[0].value + self.race_bonuses[0],
@@ -39,9 +59,9 @@ class ManageRaceBonuses():
 
 
 if __name__ == "__main__":
-    manager = ManageRaceBonuses()                     # stwórz instancję
-    final_stats = manager.calculate_final_statistics()  # wywołaj metodę
-    print("Random race:", manager.race.random_race)    # wyświetl rasę
+    manager = ManageRaceBonuses()
+    final_stats = manager.calculate_final_statistics()
+    print("Random race:", manager.race.random_race)
     print("Final stats with racial bonuses:")
     for stat, value in final_stats.items():
         print(f"{stat.capitalize()}: {value}")

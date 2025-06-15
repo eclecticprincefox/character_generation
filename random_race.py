@@ -3,13 +3,29 @@ from import_race import RaceImporter
 
 
 class RandomRace:
-    def __init__(self, races):
+    """
+    Klasa odpowiedzialna za losowy wybór rasy postaci z dostępnej listy ras.
+
+    Przechowuje wylosowaną rasę postaci wraz z jej atrybutami statystyk.
+    """
+
+    def __init__(self, races: list):
+        """
+        Inicjalizuje obiekt RandomRace i losuje rase postaci (w tym jej nazwe
+        i bonusy statystyk) z listy dostępnych ras.
+
+        Args:
+            races (list): Lista dostępnych ras postaci.
+        """
         self.random_race = random.choice(races)
 
-    def __repr__(self):
-        return (f"Race(name={self.random_race!r})")
-
     def __str__(self):
+        """
+        Zwraca nazwę i bonusy wylosowanej klasy postaci jako tekst.
+
+        Returns:
+            str: Informacja o rasie postaci.
+        """
         return (f"{self.random_race}")
 
 
@@ -18,6 +34,4 @@ if __name__ == "__main__":
     race_importer = RaceImporter("dnd.xlsx", "race")
     races = race_importer.import_races("dnd.xlsx", "race")
     generator = RandomRace(races)
-
-    # Wyświetlenie
     print(generator)

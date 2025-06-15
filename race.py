@@ -1,6 +1,27 @@
 class Race:
+    """
+    Klasa reprezentująca rasę postaci w grze.
+
+    Przechowuje nazwę rasy oraz bonusy do wszystkich głównych statystyk
+    postaci.
+    """
+
     def __init__(self, name, strength_bonus, dexterity_bonus, constitution_bonus,
                  intelligence_bonus, wisdom_bonus, charisma_bonus):
+        """
+        Funkcja inicjalizuje obiekt Race z nazwą rasy oraz bonusami do
+        statystyk.
+
+        Args:
+            name (str): Nazwa rasy.
+            strength_bonus (int): Bonus do siły.
+            dexterity_bonus (int): Bonus do zręczności.
+            constitution_bonus (int): Bonus do sprawności.
+            intelligence_bonus (int): Bonus do inteligencji.
+            wisdom_bonus (int): Bonus do mądrości.
+            charisma_bonus (int): Bonus do charyzmy.
+
+        """
         self.name = name
         self.strength_bonus = strength_bonus
         self.dexterity_bonus = dexterity_bonus
@@ -9,16 +30,14 @@ class Race:
         self.wisdom_bonus = wisdom_bonus
         self.charisma_bonus = charisma_bonus
 
-    def __repr__(self):
-        return (f"Race(name={self.name!r}, "
-                f"strength_bonus={self.strength_bonus}, "
-                f"dexterity_bonus={self.dexterity_bonus}, "
-                f"constitution_bonus={self.constitution_bonus}, "
-                f"intelligence_bonus={self.intelligence_bonus}, "
-                f"wisdom_bonus={self.wisdom_bonus}, "
-                f"charisma_bonus={self.charisma_bonus})")
-
     def __str__(self):
+        """
+        Funkcja zwraca tekstową reprezentację rasy wraz z jej bonusami
+        do statystyk.
+
+        Returns:
+            str: Nazwa rasy i jej bonusy do statystyk w czytelnej formie.
+        """
         return (f"{self.name}, "
                 f"(STR: {self.strength_bonus}, "
                 f"DEX: {self.dexterity_bonus}, "

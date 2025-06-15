@@ -6,7 +6,19 @@ from manage_race_bonuses import ManageRaceBonuses
 
 
 class Character():
+    """
+    Klasa odpowiedzialna za zebranie wszytskich inforamcji o postaci.
+
+    Przechowuje informacje o wylosowanej klasie i rasie, 
+    przechowuje końqqowe statystyki postaci.
+    Umożliwia wyświetlenie informacji o postaci.
+    """
+
     def __init__(self, name: str):
+        """
+        Funkcja odpowiedzialna za zebranie wszytskich inforamcji o postaci
+
+        """
         self.name = name
         races = RaceImporter("dnd.xlsx", "race").races
         classes = ClassImporter("dnd.xlsx", "class").classes
@@ -16,7 +28,13 @@ class Character():
             self.character_race).calculate_final_statistics()
 
     def show_character(self) -> None:
-        """Display character information"""
+        """
+        Funkcja odpowiedzialna za wyświetlenie informacji o postaci.
+
+        Wyświetla imię postaci, rasę, klasę oraz końcowe statystyki.
+        Wypisuje informacje w formie czytelnej dla użytkownika.
+        """
+
         print(f"\nCharacter Name: {self.name}")
         print(f"Race: {self.character_race.random_race.name}")
         print(f"Class: {self.character_class}")
