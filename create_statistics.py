@@ -1,8 +1,8 @@
 import random
-from statistics import Stat
+from roll_statistics import Stats
 
 
-class Strength(Stat):
+class Strength(Stats):
     """
     Klasa reprezentująca statystykę Siły postaci.
 
@@ -23,7 +23,7 @@ class Strength(Stat):
         return sum(rolls)
 
 
-class Dexterity(Stat):
+class Dexterity(Stats):
     """
     Klasa reprezentująca statystykę zręcznoąci postaci.
 
@@ -40,43 +40,37 @@ class Dexterity(Stat):
         """
         return super().roll_stat()
 
-# nizej przykłąd dla braku napisywania - po prostu dziedziczenie
 
-
-class Constitution(Stat):
+class Constitution(Stats):
     """
     Klasa reprezentująca statystykę sprawości postaci.
 
     Dziedziczy po Stat i nie nadpisuje nic.
     """
-    pass
 
 
-class Intelligence(Stat):
+class Intelligence(Stats):
     """
     Klasa reprezentująca statystykę inteligencji postaci.
 
     Dziedziczy po Stat i nie nadpisuje nic.
     """
-    pass
 
 
-class Wisdom(Stat):
+class Wisdom(Stats):
     """
     Klasa reprezentująca statystykę mądrości postaci.
 
     Dziedziczy po Stat i nie nadpisuje nic.
     """
-    pass
 
 
-class Charisma(Stat):
+class Charisma(Stats):
     """
     Klasa reprezentująca statystykę charyzmy postaci.
 
     Dziedziczy po Stat i nie nadpisuje nic.
     """
-    pass
 
 
 if __name__ == "__main__":

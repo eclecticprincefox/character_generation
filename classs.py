@@ -6,7 +6,7 @@ class Class:
     Przechowuje nazwę klasy postaci
     """
 
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         """
         Funkcja inicjalizuje obiekt Class z nazwą klasy.
 
@@ -15,7 +15,7 @@ class Class:
         """
         self.name = name
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Funkcja zwraca tekstową reprezentację klasy
 

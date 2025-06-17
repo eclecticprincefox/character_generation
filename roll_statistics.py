@@ -1,7 +1,7 @@
 import random
 
 
-class Stat:
+class Stats:
     """
     Klasa reprezentująca pojedynczą statystykę postaci 
 
@@ -9,7 +9,7 @@ class Stat:
     losowania statystyki ((4k6, odrzuć najniższą kość))
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Funkcja inicjalizuje obiekt Stat i losuje wartość statystyki.
         """
@@ -29,7 +29,7 @@ class Stat:
         rolls.remove(min(rolls))
         return sum(rolls)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Funkcaj zwraca tekstową reprezentację statystyki.
 

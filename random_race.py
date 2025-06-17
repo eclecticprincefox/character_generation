@@ -9,7 +9,7 @@ class RandomRace:
     Przechowuje wylosowaną rasę postaci wraz z jej atrybutami statystyk.
     """
 
-    def __init__(self, races: list):
+    def __init__(self, races: list) -> None:
         """
         Inicjalizuje obiekt RandomRace i losuje rase postaci (w tym jej nazwe
         i bonusy statystyk) z listy dostępnych ras.
@@ -19,7 +19,7 @@ class RandomRace:
         """
         self.random_race = random.choice(races)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Zwraca nazwę i bonusy wylosowanej klasy postaci jako tekst.
 
@@ -32,6 +32,6 @@ class RandomRace:
 if __name__ == "__main__":
 
     race_importer = RaceImporter("dnd.xlsx", "race")
-    races = race_importer.import_races("dnd.xlsx", "race")
-    generator = RandomRace(races)
+    availible_races = race_importer.import_races("dnd.xlsx", "race")
+    generator = RandomRace(availible_races)
     print(generator)

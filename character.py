@@ -14,7 +14,7 @@ class Character():
     Umożliwia wyświetlenie informacji o postaci.
     """
 
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         """
         Funkcja odpowiedzialna za zebranie wszytskich inforamcji o postaci
 

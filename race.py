@@ -6,8 +6,9 @@ class Race:
     postaci.
     """
 
-    def __init__(self, name, strength_bonus, dexterity_bonus, constitution_bonus,
-                 intelligence_bonus, wisdom_bonus, charisma_bonus):
+    def __init__(self, name: int, strength_bonus: int, dexterity_bonus: int,
+                 constitution_bonus: int, intelligence_bonus: int,
+                 wisdom_bonus: int, charisma_bonus: int) -> None:
         """
         Funkcja inicjalizuje obiekt Race z nazwą rasy oraz bonusami do
         statystyk.
@@ -30,7 +31,7 @@ class Race:
         self.wisdom_bonus = wisdom_bonus
         self.charisma_bonus = charisma_bonus
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Funkcja zwraca tekstową reprezentację rasy wraz z jej bonusami
         do statystyk.

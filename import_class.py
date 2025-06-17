@@ -1,3 +1,4 @@
+from typing import List
 import pandas as pd
 from classs import Class
 
@@ -9,7 +10,7 @@ class ClassImporter:
     Zapisuje wszytskie klasy w classes jako listę obiektów Class
     """
 
-    def __init__(self, file_path: str, sheet_name: str):
+    def __init__(self, file_path: str, sheet_name: str) -> None:
         """
         Funckja inicjalizująca klasę ClassImporter.
 
@@ -20,7 +21,7 @@ class ClassImporter:
         """
         self.classes = self.import_classes(file_path, sheet_name)
 
-    def import_classes(self, file_path: str, sheet_name: str):
+    def import_classes(self, file_path: str, sheet_name: str) -> List[Class]:
         """
         Funkcja importująca informację o klasach postaci z Excel.
         Args:

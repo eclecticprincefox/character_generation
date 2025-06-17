@@ -1,3 +1,4 @@
+from typing import List
 import pandas as pd
 from race import Race
 
@@ -10,7 +11,7 @@ class RaceImporter:
 
     """
 
-    def __init__(self, file_path: str, sheet_name: str):
+    def __init__(self, file_path: str, sheet_name: str) -> None:
         """
         Funckja inicjalizująca klasę RaceImporter.
 
@@ -21,7 +22,7 @@ class RaceImporter:
         """
         self.races = self.import_races(file_path, sheet_name)
 
-    def import_races(self, file_path: str, sheet_name: str):
+    def import_races(self, file_path: str, sheet_name: str) -> List[Race]:
         """
         Funkcja importująca informację o rasach postaci z Excel.
 

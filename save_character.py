@@ -9,7 +9,7 @@ class CharacterExporter():
     Zapisywana jest jedna postać do wskazanego arkusza pliku.
     """
 
-    def __init__(self, file_path: str,  sheet_name: str):
+    def __init__(self, file_path: str,  sheet_name: str) -> None:
         """
         Funckja inicjalizująca klasę CharacterExporter.
 
@@ -21,7 +21,7 @@ class CharacterExporter():
         self.file_path = file_path
         self.sheet_name = sheet_name
 
-    def save_character(self, character: Character):
+    def save_character(self, character: Character) -> pd.DataFrame:
         """
         Funlkcja zbiera i zapisuje dane przekazanej postaci do pliku Excel.
 

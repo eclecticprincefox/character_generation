@@ -9,7 +9,7 @@ class RandomClass:
     Przechowuje wylosowaną klasę postaci.
     """
 
-    def __init__(self, classes: list):
+    def __init__(self, classes: list) -> None:
         """
         Inicjalizuje obiekt RandomClass i losuje klasę postaci 
         z listy dostępnych klas.
@@ -19,7 +19,7 @@ class RandomClass:
         """
         self.random_class = random.choice(classes)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Zwraca nazwę wylosowanej klasy postaci jako tekst.
 
@@ -32,6 +32,6 @@ class RandomClass:
 if __name__ == "__main__":
 
     class_importer = ClassImporter("dnd.xlsx", "class")
-    classes = class_importer.import_classes("dnd.xlsx", "class")
-    generator = RandomClass(classes)
+    availible_classes = class_importer.import_classes("dnd.xlsx", "class")
+    generator = RandomClass(availible_classes)
     print(generator)

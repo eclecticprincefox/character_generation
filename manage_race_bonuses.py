@@ -1,6 +1,7 @@
 from random_race import RandomRace
 from import_race import RaceImporter
-from create_statistics import Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
+from create_statistics import Strength, Dexterity, Constitution, \
+    Intelligence, Wisdom, Charisma
 
 
 class ManageRaceBonuses():
@@ -11,7 +12,7 @@ class ManageRaceBonuses():
     i umożliwia obliczenie końcowych statystyk postaci.
     """
 
-    def __init__(self, character_race: str = "random"):
+    def __init__(self, character_race: str = "random") -> None:
         """
         Funkcja odpowiedzialna za dodawanie bonusów rasowych postaci do
         wylosowanych statystyk.
@@ -39,7 +40,7 @@ class ManageRaceBonuses():
             self.race.random_race.charisma_bonus
         ]
 
-    def calculate_final_statistics(self):
+    def calculate_final_statistics(self) -> dict:
         """
         Funkcja odpowiedzialna za dodawanie bonusów rasowych postaci do
         wylosowanych statystyk.
